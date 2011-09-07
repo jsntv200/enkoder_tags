@@ -15,8 +15,9 @@ Then install the bundle:
 
     bundle install
 
+## Usage
 
-### enkode
+#### enkode
 
 The `enkode` tag obfuscates an arbitrary bit of content as a block of javascript. For example, 
 
@@ -55,7 +56,7 @@ is turned into
     </script>
 
 
-### enkode_mailto
+#### enkode_mailto
 
 The `enkode_mailto` tag also obfuscates content, but is tailored to creating `mailto` links. For example, the code
 
