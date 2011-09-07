@@ -5,7 +5,7 @@ EnkoderTags is an extension for [Radiant CMS][1] that provides tags for hiding w
 This version has been updated for use with Radiant v1.0.0.rc3 or above.
 
 
-## Dependencies
+## Installation
 
 Until the Gem is released add the following to your Radaint installation Gemfile:
 
@@ -16,7 +16,7 @@ Then install the bundle:
     bundle install
 
 
-### Enkode
+### enkode
 
 The `enkode` tag obfuscates an arbitrary bit of content as a block of javascript. For example, 
 
