@@ -1,22 +1,23 @@
-EnkoderTags
-===========
-EnkoderTags is an extension for the [Radiant CMS][1] that provides tags for hiding web content from robots using [Dan Benjamin's Enkoder][2]. 
+## EnkoderTags
 
-The latest version is available on [GitHub][5].
+EnkoderTags is an extension for [Radiant CMS][1] that provides tags for hiding web content from robots using [Dan Benjamin's Enkoder][2]. 
 
-    git clone git://github.com/santry/enkoder_tags.git
-	
-
-Dependencies
-------------
-If you use the *Textile* filter on your site, it is recommended that you also install the [RedCloth4 extension][6] for Radiant. This makes it possible to use Radius tags (such as `<r:enkode_mailto />`) within *Textile*. (The version of RedCloth that comes bundled with Radiant tends to convert `>` into &amp;lt;, causing a javascript error)
-
-    git clone git://github.com/jgarber/radiant-redcloth4-extension.git vendor/extensions/redcloth4
-    sudo gem install redcloth
+This version has been updated for use with Radiant v1.0.0.rc3 or above.
 
 
-`enkode`
-========
+## Dependencies
+
+Until the Gem is released add the following to your Radaint installation Gemfile:
+
+    gem "radiant-enkoder_tags-extension", :git => "git://github.com/jsntv200/enkoder_tags.git", :branch => "gemspec"
+
+Then install the bundle:
+
+    bundle install
+
+
+### Enkode
+
 The `enkode` tag obfuscates an arbitrary bit of content as a block of javascript. For example, 
 
     <r:enkode>
@@ -29,7 +30,7 @@ The `enkode` tag obfuscates an arbitrary bit of content as a block of javascript
         We eat ham and jam and spam a lot.
       </p>
     </r:enkode>
-    
+
 is turned into
 
     <script type="text/javascript">
@@ -54,8 +55,8 @@ is turned into
     </script>
 
 
-`enkode_mailto`
-===============
+### enkode_mailto
+
 The `enkode_mailto` tag also obfuscates content, but is tailored to creating `mailto` links. For example, the code
 
     <r:enkode_mailto email="example@example.com" link_text="simple email example"/>
@@ -95,7 +96,7 @@ If you like, you can also provide `title_text` for the anchor's `title` attribut
 
     <r:enkode_mailto email="example@example.com" link_text="email example"
         title_text="Send an example email" subject="Comment from your web site"/>
-        
+
 produces the HTML
 
     <a href="mailto:example@example.com?subject=Comment from your web site"
@@ -126,14 +127,14 @@ which is obfuscated as
     ;var i,c,x;while(eval(kode));}hivelogic_enkoder();
     /* ]]> */
     </script>
-    
+
 You can also include extra HTML attributes in the `enkode_mailto` tag. These attributes
-will simply be copied as-is into the resulting HTML. For example, the code 
+will simply be copied as-is into the resulting HTML. For example, the code
 
     <r:enkode_mailto email="example@example.com" link_text="simple email example"
         class="enkodedlink"/>
-        
-will produce the HTML 
+
+will produce the HTML
 
     <a href="mailto:example@example.com" class="enkodedlink">simple email example</a>
 
@@ -159,13 +160,12 @@ which is obfuscated as
     </script>
 
 
-Acknowledgments
-===============
+## Acknowledgments
+
 Thanks to [John Long][4] for creating Radiant, to [Dan Benjamin][4] for creating Enkoder and to [Andrew Neil][7] for providing additional documentation.
 
 And no thanks to the spammers who make this kind of thing necessary. Ugh.
-    
-    
+
 [1]: http://radiantcms.org/
 [2]: http://hivelogic.com/articles/2006/02/07/enkoder_plugin
 [3]: http://wiseheartdesign.com/
